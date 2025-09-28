@@ -1,0 +1,51 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginView from "./components/views/login_view/LoginView";
+import Dashboard from "./components/views/home_view/Dashboard";
+import LandingView from "./components/views/landing_view/LandingView";
+import PrivateRoute from "./components/PrivateRoute";
+import Layout from "./components/Layout";
+
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        <Route 
+          path="/" 
+          element={
+            <Layout>
+              <LandingView />
+            </Layout>
+          } 
+        />
+
+
+        <Route 
+          path="/login" 
+          element={
+            <Layout>
+              <LoginView />
+            </Layout>
+          }
+        />
+
+
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Layout>
+              <Dashboard />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
