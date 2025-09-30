@@ -1,0 +1,63 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* separa izquierda y derecha */
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6); /* mismo estilo que tu layout */
+  padding: 0.5rem 0.5rem 0.5rem 0rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* espacio entre links */
+}
+
+.navbar li {
+  list-style: none;
+  margin: 0 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.app-name {
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+.user-icon {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+}

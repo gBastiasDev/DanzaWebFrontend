@@ -1,0 +1,40 @@
+.dashboard-container {
+  padding: 2rem;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.total-box {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.donations-table th,
+.donations-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.donations-table th {
+  background-color: #f4f4f4;
+}
+
+.donations-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

@@ -1,13 +1,180 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import donationService from "../../../services/donationService";
+import BankDataModal from "./BankDataModal";
+import BankSelectionModal from "./BankSelectionModal";
+import FileUploadModal from "./FileUploadModal";
+import "./LandingView.css";
 
-const Dashboard: React.FC = () => {
+
+const LandingPage: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"tarjeta" | "transferencia">("transferencia");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [amount, setAmount] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSelectorModalOpen, setIsSelectorModalOpen] = useState(false);
+  const [isFileUploadModalOpen, setIsFileUploadModalOpen] = useState(false);
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [donated, setDonated] = useState(false);
+
+  const images = [
+    "/Foto2.jpg",
+    "/Foto1.jpeg",
+    "/Foto3.JPG",
+    "/Foto4.jpeg",
+    "/Foto5.jpg",
+    "/Foto6.jpg",
+    "/Foto7.jpg",
+    "/Foto8.jpeg",
+  ];
+
+  const transferInfo = `
+    Nombre:         Camila Aravena Gonzalez
+    Rut:            19.955.613-4
+    Banco:          Santander
+    Cuenta:         Vista
+    Número Cuenta:  7024363656
+  `;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const handleDonate = async (file?: string) => {
+    try {
+      const donation = {
+        name,
+        email,
+        amount: Number(amount),
+        donation_date: new Date(),
+        state: "Pagado",
+        method: activeTab === "tarjeta" ? "Tarjeta" : "Transferencia",
+        photo: file,
+      };
+
+      // En transferencia podrías enviar también el comprobante
+      if (activeTab === "transferencia" && file) {
+        console.log("Archivo de comprobante:", file);
+        // aquí lo puedes subir al backend con FormData si lo deseas
+      }
+
+      await donationService.createDonation(donation);
+      setDonated(true);
+      setTimeout(() => setDonated(false), 1500);
+
+      setName("");
+      setEmail("");
+      setAmount("");
+    } catch (error) {
+      console.error(error);
+      alert("Error al crear donación");
+    }
+  };
+
+  const isFormValid = name.trim() !== "" && email.trim() !== "" && amount.trim() !== "";
+  
+
   return (
-    <div>
-        <h1>Bienvenido al Dashboard</h1>
-        <p>Aquí va tu contenido principal.</p>
+    <div className="landing-container">
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`background-image ${index === currentBgIndex ? "visible" : ""}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
+
+
+      <div className="card-wrapper">
+        <div className="tabs-container">
+          <button
+            className={activeTab === "transferencia" ? "tab-folder active" : "tab-folder"}
+            onClick={() => setActiveTab("transferencia")}
+          >
+            Transferencia
+          </button>
+
+          {/* <button
+            className={activeTab === "tarjeta" ? "tab-folder active" : "tab-folder"}
+            onClick={() => setActiveTab("tarjeta")}
+          >
+            Tarjeta
+          </button> */}
+        </div>
+
+        <div className="landing-card">
+
+          <h1>{activeTab === "tarjeta" ? "Tarjeta" : "Transferencia"}</h1>
+
+          <input
+            type="text"
+            placeholder="Nombre*"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="email"
+            placeholder="Correo*"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="number"
+            placeholder="Monto*"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+
+          <div className="button-group">
+            {activeTab === "transferencia" && (
+              <button className="show-transfer-btn" onClick={() => setIsModalOpen(true)}>
+                Mostrar Datos de Transferencia
+              </button>
+            )}
+
+            <button 
+              className={`donate-btn ${donated ? "donated" : ""}`} 
+              onClick={() => {
+                if (activeTab === "transferencia") setIsSelectorModalOpen(true);
+                else handleDonate();
+              }}
+              disabled={!isFormValid}
+            >
+              <span>{donated ? "¡Gracias!" : "Donar"}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <BankDataModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        transferData={transferInfo}
+      />
+
+      <BankSelectionModal
+        isOpen={isSelectorModalOpen}
+        onClose={(nextStep: boolean) => {
+          setIsSelectorModalOpen(false);
+          if (nextStep) setIsFileUploadModalOpen(true);
+        }}
+      />
+
+      <FileUploadModal
+        isOpen={isFileUploadModalOpen}
+        onClose={(file?: File | null) => {
+          setIsFileUploadModalOpen(false);
+          if (file) handleDonate(file.name);
+        }}
+      />
+
     </div>
-      
   );
 };
 
-export default Dashboard;
+export default LandingPage;

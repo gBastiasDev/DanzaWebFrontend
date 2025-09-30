@@ -1,0 +1,127 @@
+.aboutus-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutus-overlay {
+  background-color: rgba(200, 200, 200, 0.6); /* fondo negro con opacidad */
+  color: black;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  min-height: 30%;
+}
+
+.aboutus-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.aboutus-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: #00bcd4; /* celeste al hover */
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* Paginación con puntos */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #00bcd4; /* celeste para activo */
+}
+
+
+
+
+
+.contact-section {
+  text-align: center;
+  color: black;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+
+
+  width: 100%;       /* ocupa todo el ancho disponible */
+  max-width: 300px;  /* límite bonito para que no sea gigante */
+  margin-left: auto;
+  margin-right: auto;
+  
+
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.contact-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-item img {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-item a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #00bfff;
+  text-decoration: underline;
+}

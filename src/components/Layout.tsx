@@ -1,6 +1,7 @@
 import React from "react";
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import "./styles/Layout.css";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,24 +9,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <aside>
-        <nav>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/">Inicio</Link>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+    <div>
+      <Navbar />
 
-      <main style={{ flex: 1, padding: "2rem" }}>{children}</main>
+      <main>{children}</main>
     </div>
   );
 };
