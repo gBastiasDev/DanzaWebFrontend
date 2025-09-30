@@ -24,28 +24,28 @@ const Footer: React.FC = () => {
 
       {/* Columna de contacto */}
       <div className="footer-column footer-contact">
-        <div className="contact-item">
+        <div className="contact-item-footer">
           <img src="/MailIcon.png" alt="Mail" className="img-logo" />
           <a href="mailto:danzaucoficial@gmail.com" target="_blank" rel="noreferrer">
             danzaucoficial@gmail.com
           </a>
         </div>
 
-        <div className="contact-item">
+        <div className="contact-item-footer">
           <img src="/IgIcon.png" alt="Instagram" className="img-logo" />
           <a href="https://www.instagram.com/uc_danza" target="_blank" rel="noreferrer">
             @uc_danza
           </a>
         </div>
 
-        <div className="contact-item">
+        <div className="contact-item-footer">
           <img src="/YoutubeIcon.png" alt="Youtube" className="img-logo" />
           <a href="https://www.youtube.com/@danzauc" target="_blank" rel="noreferrer">
             @danzauc
           </a>
         </div>
 
-        <div className="contact-item">
+        <div className="contact-item-footer">
           <img src="/TiktokIcon.png" alt="Tiktok" className="img-logo" />
           <a href="https://www.tiktok.com/@uc_danza" target="_blank" rel="noreferrer">
             @uc_danza

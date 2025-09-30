@@ -46,7 +46,7 @@
   height: 30px;
 }
 
-.footer-contact .contact-item {
+.footer-contact .contact-item-footer {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -58,11 +58,11 @@
 }
 
 
-.contact-item {
+.contact-item-footer {
   width: 75%;
 }
 
-.contact-item a {
+.contact-item-footer a {
   color: white;
   font-size: 14px;
 }
