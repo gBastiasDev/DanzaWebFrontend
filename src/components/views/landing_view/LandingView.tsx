@@ -55,12 +55,6 @@ const LandingPage: React.FC = () => {
         photo: file,
       };
 
-      // En transferencia podrías enviar también el comprobante
-      if (activeTab === "transferencia" && file) {
-        console.log("Archivo de comprobante:", file);
-        // aquí lo puedes subir al backend con FormData si lo deseas
-      }
-
       await donationService.createDonation(donation);
       setDonated(true);
       setTimeout(() => setDonated(false), 1500);

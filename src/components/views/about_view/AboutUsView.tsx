@@ -59,24 +59,24 @@ const sections = [
         <div className="contact-list">
           <div className="contact-item">
             <img src="/MailIcon.png" alt="Mail" className="img-logo" />
-            <a href="mailto:danzaucoficial@gmail.com">danzaucoficial@gmail.com</a>
+            <a href="mailto:danzaucoficial@gmail.com" target="_blank">danzaucoficial@gmail.com</a>
           </div>
 
           <div className="contact-item">
             <img src="/IgIcon.png" alt="Instagram" className="img-logo" />
-            <a href="https://www.instagram.com/uc_danza?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            <a href="https://www.instagram.com/uc_danza?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
               @uc_danza
             </a>
           </div>
 
           <div className="contact-item">
             <img src="/YoutubeIcon.png" alt="Youtube" className="img-logo" />
-            <a href="https://www.youtube.com/@danzauc">@danzauc</a>
+            <a href="https://www.youtube.com/@danzauc" target="_blank">@danzauc</a>
           </div>
 
           <div className="contact-item">
             <img src="/TiktokIcon.png" alt="Tiktok" className="img-logo" />
-            <a href="https://www.tiktok.com/@uc_danza?_t=ZM-908rav1sX3w&_r=1">@uc_danza</a>
+            <a href="https://www.tiktok.com/@uc_danza?_t=ZM-908rav1sX3w&_r=1" target="_blank">@uc_danza</a>
           </div>
         </div>
       </div>
