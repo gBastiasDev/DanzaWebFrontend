@@ -20,8 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <main style={{ minHeight: "calc(100vh - 130px)" }}>{children}</main>
 
-      {/* {!token && <Footer />} */}
-      <Footer />
+      {!token && <Footer />}
     </div>
   );
 };

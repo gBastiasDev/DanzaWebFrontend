@@ -2,7 +2,6 @@ import React from "react";
 import "./styles/Footer.css";
 
 const Footer: React.FC = () => {
-  const token = localStorage.getItem("token");
 
   return (
     <footer className="footer">

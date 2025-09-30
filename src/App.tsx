@@ -6,9 +6,14 @@ import AboutUsView from "./components/views/about_view/AboutUsView";
 import ConfirmationView from "./components/views/confirmation_view/ConfirmationView";
 import PrivateRoute from "./components/PrivateRoute";
 import Layout from "./components/Layout";
+import { setAuthToken } from "./api/axios";
 
 
 function App() {
+
+  const token = localStorage.getItem("token");
+  if (token) setAuthToken(token);
+
   return (
     <BrowserRouter>
       <Routes>

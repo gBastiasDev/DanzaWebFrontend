@@ -1,15 +1,18 @@
-import axios from "axios";
+import api, { setAuthToken } from "../api/axios";
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
 
-const setToken = (token: string) => {
-  api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+const setToken = (token: string | null) => {
+  setAuthToken(token);
 };
 
 export const getDonations = async () => {
   const response = await api.get("/donations");
+
+  if (response.status !== 200) {
+    setToken(null);
+  }
+
   return response.data;
 };
 
