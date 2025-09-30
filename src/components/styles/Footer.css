@@ -1,0 +1,68 @@
+.footer {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr 1fr;
+  gap: 40px;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 30px 50px;
+  align-items: start; /* Todas las columnas alineadas arriba */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-left .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+}
+
+.app-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #f39c12;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-contact .contact-item-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-logo {
+  width: 20px;
+  height: 20px;
+}
+
+
+.contact-item-footer {
+  width: 75%;
+}
+
+.contact-item-footer a {
+  color: white;
+  font-size: 14px;
+}

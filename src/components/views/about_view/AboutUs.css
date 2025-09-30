@@ -125,3 +125,17 @@
   color: #00bfff;
   text-decoration: underline;
 }
+
+.aboutus-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 0.5rem;
+}
+
+.aboutus-text {
+  margin-top: 1rem;
+  margin-inline: 7rem;
+}

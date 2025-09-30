@@ -43,27 +43,42 @@ const LandingPage: React.FC = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const handleDonate = async (file?: string) => {
+  const handleDonate = async (mode: "tarjeta" | "transferencia", file?: string) => {
     try {
-      const donation = {
-        name,
-        email,
-        amount: Number(amount),
-        donation_date: new Date(),
-        state: "Pagado",
-        method: activeTab === "tarjeta" ? "Tarjeta" : "Transferencia",
-        photo: file,
-      };
 
-      // En transferencia podrías enviar también el comprobante
-      if (activeTab === "transferencia" && file) {
-        console.log("Archivo de comprobante:", file);
-        // aquí lo puedes subir al backend con FormData si lo deseas
+      if (mode === "transferencia") {
+        const donation = {
+          name,
+          email,
+          amount: Number(amount),
+          donation_date: new Date(),
+          state: "Pagado",
+          method: "Transferencia",
+          photo: file,
+        };
+
+        await donationService.createDonation(donation);
+        setDonated(true);
+        setTimeout(() => setDonated(false), 1500);
+
+      } else {
+
+        const donation = {
+          name,
+          email,
+          amount: Number(amount),
+          donation_date: new Date(),
+          state: "Pendiente",
+          method: "Tarjeta",
+        };
+
+        // Llamada al backend para crear la donación y obtener URL de Flow
+        const { flowUrl } = await donationService.createFlowDonation(donation);
+
+        // Redirigir al checkout de Flow
+        window.location.href = flowUrl;
+
       }
-
-      await donationService.createDonation(donation);
-      setDonated(true);
-      setTimeout(() => setDonated(false), 1500);
 
       setName("");
       setEmail("");
@@ -141,7 +156,7 @@ const LandingPage: React.FC = () => {
               className={`donate-btn ${donated ? "donated" : ""}`} 
               onClick={() => {
                 if (activeTab === "transferencia") setIsSelectorModalOpen(true);
-                else handleDonate();
+                else handleDonate("tarjeta");
               }}
               disabled={!isFormValid}
             >
@@ -169,7 +184,7 @@ const LandingPage: React.FC = () => {
         isOpen={isFileUploadModalOpen}
         onClose={(file?: File | null) => {
           setIsFileUploadModalOpen(false);
-          if (file) handleDonate(file.name);
+          if (file) handleDonate("transferencia", file.name);
         }}
       />
 

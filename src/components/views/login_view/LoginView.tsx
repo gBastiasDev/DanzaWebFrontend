@@ -34,10 +34,7 @@ const LoginView: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await login({ email, password });
-
-      // Guardar token en localStorage
-      localStorage.setItem("token", response.token);
+      await login({ email, password });
 
       // Limpiar inputs
       setEmail("");

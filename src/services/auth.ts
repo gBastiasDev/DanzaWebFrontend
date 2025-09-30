@@ -6,13 +6,18 @@ interface LoginData {
 }
 
 export const login = async (data: LoginData) => {
-  const response = await api.post("/auth/login", data);
-  const { token, user } = response.data;
+  try {
+    const response = await api.post("/auth/login", data);
+    const { token, user } = response.data;
 
-  localStorage.setItem("token", token);
-  setAuthToken(token);
-
-  return user;
+    localStorage.setItem("token", token);
+    setAuthToken(token);
+    return user;
+  } catch (error) {
+    localStorage.removeItem("token");
+    setAuthToken(null);
+    throw error;
+  }
 };
 
 export const logout = () => {

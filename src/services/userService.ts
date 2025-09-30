@@ -1,12 +1,8 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
+import api, { setAuthToken } from "../api/axios";
 
 // Si necesitas enviar el token en headers
 const setToken = (token: string) => {
-  api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  setAuthToken(token);
 };
 
 export const getUsers = async () => {
