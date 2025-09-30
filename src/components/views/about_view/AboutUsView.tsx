@@ -17,33 +17,45 @@ const images = [
 
 const sections = [
   {
-    title: "Quiénes somos",
-    text: "Somos DanzaUC, un grupo comprometido con difundir el arte de la danza en la comunidad.",
+    title: "¿Quiénes somos?",
+    text: <>
+      <p>Somos Danza UC, el equipo de danza competitiva de la Pontificia Universidad Católica de Chile. Nos especializamos en los estilos de jazz y contemporáneo, y nuestro propósito es representar con excelencia, disciplina y creatividad tanto a nuestra universidad, como a nuestro país en escenarios nacionales e internacionales.</p>
+    </>,
     bg: images[0],
-  },
-  {
-    title: "Metas y misión",
-    text: "Nuestra misión es promover la danza como una forma de expresión artística y cultural.",
-    bg: images[5],
   },
   {
     title: "Nuestro equipo",
     text: <>
-      <p>Contamos con un equipo diverso y talentoso que trabaja arduamente para llevar la danza a todos.</p>
+      <p>Lo que nos distingue es la interdisciplina: estudiantes de distintas carreras y realidades, que combinamos nuestra vida académica con la pasión por la danza. Creemos en el poder del trabajo en equipo, la perseverancia y la fuerza de lo colectivo para alcanzar grandes metas.</p>
     </>,
     bg: images[1],
   },
   {
+    title: "Metas y misión",
+    text: <>
+      <p>Nuestra misión es dar visibilidad a la danza competitiva en Chile, mostrando a través de nuestras redes lo que significa ser atleta universitario y, a la vez, potenciar el deporte femenino.</p>
+    </>,
+    bg: images[5],
+  },
+  {
+    title: "Metas y misión",
+    text: <>
+      <p>Hoy nos encontramos trabajando con toda la energía para nuestro próximo gran desafío: la ICU University World Cup Cheerleading Championship 2026, donde por primera vez la UC y Chile estarán presentes en esta competencia de nivel mundial.</p>
+      <p>Con tu apoyo, podremos seguir abriendo camino, demostrando que en Chile también se puede competir al más alto nivel y que la danza es un deporte que merece un lugar en la historia.</p>
+    </>,
+    bg: images[5],
+  },
+  {
     title: "Nuestros entrenadores",
     text: <>
-      <p>Contamos con un equipo de entrenadores altamente capacitados y apasionados por la danza.</p>
+      <p>Contamos con la guía de entrenadores de reconocida trayectoria en diversas técnicas de danza, quienes nos inspiran a crecer día a día como artistas y como atletas. Nuestro Head Coach es Cristian Juris, nuestro Asistant Coach Eduardo Briones y nuestro Preparador Físico Erick Pavez.</p>
     </>,
     bg: images[2],
   },
   {
     title: "Nuestra trayectoria",
     text: <>
-      <p>Desde nuestros inicios, hemos trabajado para promover la danza en la comunidad.</p>
+      <p>Somos bicampeonas nacionales y hemos acumulado múltiples primeros lugares desde la creación del equipo. En 2023 participamos en The Dance Worlds, alcanzando el 11° lugar mundial, un hito histórico que nos impulsa a seguir soñando en grande.</p>
     </>,
     bg: images[3],
   },
@@ -117,7 +129,9 @@ const AboutUsView: React.FC = () => {
 
         <div className="aboutus-overlay">
           <h1>{sections[current].title}</h1>
-          <p>{sections[current].text}</p>
+          <div className="aboutus-text">
+            {sections[current].text}
+          </div>
 
           
         </div>
