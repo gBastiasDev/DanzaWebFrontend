@@ -112,12 +112,12 @@ const LandingPage: React.FC = () => {
             Transferencia
           </button>
 
-          {/* <button
+          <button
             className={activeTab === "tarjeta" ? "tab-folder active" : "tab-folder"}
             onClick={() => setActiveTab("tarjeta")}
           >
             Tarjeta
-          </button> */}
+          </button>
         </div>
 
         <div className="landing-card">
@@ -146,11 +146,11 @@ const LandingPage: React.FC = () => {
           />
 
           <div className="button-group">
-            {activeTab === "transferencia" && (
+            {activeTab === "transferencia" ? (
               <button className="show-transfer-btn" onClick={() => setIsModalOpen(true)}>
                 Mostrar Datos de Transferencia
               </button>
-            )}
+            ) : <div />}
 
             <button 
               className={`donate-btn ${donated ? "donated" : ""}`} 
