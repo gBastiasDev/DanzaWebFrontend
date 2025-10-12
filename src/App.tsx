@@ -12,7 +12,7 @@ import { setAuthToken } from "./api/axios";
 function App() {
 
   const token = localStorage.getItem("token");
-  if (token) setAuthToken(token);
+  setAuthToken(token);
 
   return (
     <BrowserRouter>

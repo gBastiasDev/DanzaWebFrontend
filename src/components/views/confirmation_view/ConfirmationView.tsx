@@ -36,6 +36,8 @@ const ConfirmationView: React.FC = () => {
       if (donation.state !== "Pagado") {
         setMessage("Pago fallido.");
         setSubMessage("Hubo un problema al procesar tu donación. Por favor, intenta nuevamente.");
+      } else {
+        console.log("Donation confirmed:", donation);
       }
     };
 
