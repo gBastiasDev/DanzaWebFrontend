@@ -15,11 +15,12 @@ const BankDataModal: React.FC<BankDataModalProps> = ({ isOpen, onClose, transfer
   }, [isOpen]);
 
   const transferInfo = `
-    Camila Fernanda Aravena Gonzalez
-    19.955.613-4
-    Banco Santander
+    ISIDORA PAZ SEPULVEDA ARANCIBIA
+    21.198.266-7
+    Banco prepago Tenpo
     Cuenta Vista
-    7024363656
+    111121198266
+    isidorasepulvedaa@gmail.com
   `;
 
   if (!isOpen) return null;

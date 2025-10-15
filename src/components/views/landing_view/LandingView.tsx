@@ -34,6 +34,7 @@ const LandingPage: React.FC = () => {
     Banco:          Santander
     Cuenta:         Vista
     Número Cuenta:  7024363656
+    Email:          isidorasepulvedaa@gmail.com
   `;
 
   useEffect(() => {
