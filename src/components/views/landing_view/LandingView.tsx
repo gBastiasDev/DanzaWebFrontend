@@ -29,11 +29,11 @@ const LandingPage: React.FC = () => {
   ];
 
   const transferInfo = `
-    Nombre:         Camila Aravena Gonzalez
-    Rut:            19.955.613-4
-    Banco:          Santander
+    Nombre:         ISIDORA PAZ SEPULVEDA
+    Rut:            21.198.266-7
+    Banco:          Tenpo prepago
     Cuenta:         Vista
-    Número Cuenta:  7024363656
+    Número Cuenta:  111121198266
     Email:          isidorasepulvedaa@gmail.com
   `;
 
