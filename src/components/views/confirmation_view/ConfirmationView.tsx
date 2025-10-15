@@ -27,17 +27,13 @@ const ConfirmationView: React.FC = () => {
 
   useEffect(() => {
     const confirmDonation = async () => {
-      const transactionId = new URLSearchParams(window.location.search).get("transactionId");
-      if (!transactionId) return;
+      const state = new URLSearchParams(window.location.search).get("state");
 
-      const res = await donationService.getDonation(transactionId);
-      const donation = res.data;
-      
-      if (donation.state !== "Pagado") {
+      if (state !== "Pagado") {
         setMessage("Pago fallido.");
         setSubMessage("Hubo un problema al procesar tu donación. Por favor, intenta nuevamente.");
       } else {
-        console.log("Donation confirmed:", donation);
+        console.log("Donation confirmed:", state);
       }
     };
 
