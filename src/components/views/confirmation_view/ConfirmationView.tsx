@@ -4,8 +4,6 @@ import "./ConfirmationView.css";
 
 
 const ConfirmationView: React.FC = () => {
-  const [message, setMessage] = useState<string>("¡Gracias por tu donación!");
-  const [subMessage, setSubMessage] = useState<string>("El pago se efectuó correctamente");
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const images = [
     "/Foto2.jpg",
@@ -24,22 +22,6 @@ const ConfirmationView: React.FC = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  useEffect(() => {
-    const confirmDonation = async () => {
-      const state = new URLSearchParams(window.location.search).get("state");
-
-      if (state !== "pagado") {
-        setMessage("Pago fallido.");
-        setSubMessage("Hubo un problema al procesar tu donación. Por favor, intenta nuevamente.");
-      } else {
-        console.log("Donation confirmed:", state);
-      }
-    };
-
-    confirmDonation();
-  }, []);
-  
-
   return (
     <div className="landing-container">
       {images.map((img, index) => (
@@ -53,8 +35,8 @@ const ConfirmationView: React.FC = () => {
 
       <div className="card-wrapper">
         <div className="landing-card-success">
-            <h1>{message}</h1>
-            <h5>{subMessage}</h5>
+            <h1>¡Gracias por tu donación!</h1>
+            <h5>El pago se efectuó correctamente</h5>
         </div>
       </div>
 
