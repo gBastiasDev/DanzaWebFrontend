@@ -28,7 +28,7 @@ const ConfirmationView: React.FC = () => {
     const confirmDonation = async () => {
       const state = new URLSearchParams(window.location.search).get("state");
 
-      if (state !== "Pagado") {
+      if (state !== "pagado") {
         setMessage("Pago fallido.");
         setSubMessage("Hubo un problema al procesar tu donación. Por favor, intenta nuevamente.");
       } else {
