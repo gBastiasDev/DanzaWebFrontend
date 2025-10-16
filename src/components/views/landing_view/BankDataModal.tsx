@@ -20,7 +20,7 @@ const BankDataModal: React.FC<BankDataModalProps> = ({ isOpen, onClose, transfer
     Banco prepago Tenpo
     Cuenta Vista
     111121198266
-    isidorasepulvedaa@gmail.com
+    isidorasepulveda.a@uc.cl
   `;
 
   if (!isOpen) return null;
