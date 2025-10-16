@@ -34,7 +34,7 @@ const LandingPage: React.FC = () => {
     Banco:          Tenpo prepago
     Cuenta:         Vista
     Número Cuenta:  111121198266
-    Email:          isidorasepulvedaa@gmail.com
+    Email:          isidorasepulveda.a@uc.cl
   `;
 
   useEffect(() => {
